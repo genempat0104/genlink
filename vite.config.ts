@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '', // Use an empty string for relative paths
+  base: '/', // This must be '/' for gen.opik.net
 });
