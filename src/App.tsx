@@ -129,7 +129,7 @@ function Home() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/genlink">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:stem" element={<RedirectHandler />} />
