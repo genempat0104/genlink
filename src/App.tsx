@@ -26,7 +26,7 @@ function RedirectHandler() {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh", fontFamily: "sans-serif" }}>
       <Loader2 className="animate-spin" size={48} color="#2563eb" />
-      <h2 style={{ color: "#1e293b", mt: "10px" }}>Redirecting you...</h2>
+      <h2 style={{ color: "#1e293b", marginTop: "10px" }}>Redirecting you...</h2>
     </div>
   );
 }
@@ -43,7 +43,7 @@ function Home() {
 
   const handleShorten = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(""); // Clear previous errors
+    setError(""); 
     setCopied(false);
 
     try {
@@ -52,9 +52,8 @@ function Home() {
         customStem: customStem.trim() !== "" ? customStem : undefined 
       });
       setShortened(`${window.location.host}/${stem}`);
-      setCustomStem(""); // Reset custom stem field on success
+      setCustomStem(""); 
     } catch (err: any) {
-      // Catch errors thrown by Convex (like "Already taken")
       setError(err.data?.message || "Something went wrong. Please try again.");
     }
   };
@@ -103,7 +102,7 @@ function Home() {
             </div>
           )}
 
-          <button style={{ width: "100%", backgroundColor: "#2563eb", color: "white", border: "none", padding: "14px", borderRadius: "10px", cursor: "pointer", fontWeight: "bold", fontSize: "16px", marginTop: "10px", transition: "background 0.2s" }}>
+          <button style={{ width: "100%", backgroundColor: "#2563eb", color: "white", border: "none", padding: "14px", borderRadius: "10px", cursor: "pointer", fontWeight: "bold", fontSize: "16px", marginTop: "10px" }}>
             Shorten
           </button>
         </form>
@@ -114,6 +113,7 @@ function Home() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
               <code style={{ color: "#1e40af", fontWeight: "600", fontSize: "14px", wordBreak: "break-all" }}>{shortened}</code>
               <button 
+                type="button"
                 onClick={copyToClipboard} 
                 style={{ border: "none", background: "#ffffff", cursor: "pointer", padding: "8px", borderRadius: "6px", display: "flex", alignItems: "center", boxShadow: "0 2px 4px rgba(0,0,0,0.05)" }}
               >
